@@ -1,0 +1,22 @@
+.header{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 10px 20px;
+    background-color: rgb(79, 89, 98);
+}
+.right{
+    display: flex;
+    gap: 12;
+
+}
+.logo{
+    height: 40px;
+    width: auto;
+}
+.nav-link{
+    text-decoration: none;
+    padding: 6px 12px;
+    border: 1px solid #ccc;
+    color:black;
+}
