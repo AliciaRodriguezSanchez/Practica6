@@ -9,7 +9,6 @@ import { IUserApiResponse } from '../../interfaces/iuserapiresponse.interfaces';
   providedIn:'root'
 })
 export class UsersServise {
-  //private users: IUser[] = USERS;
   private baseUrl = 'https://peticiones.online/api/users'; 
   httpClient = inject(HttpClient);
 
@@ -20,7 +19,5 @@ export class UsersServise {
     );
     return response.results; // solo devolvemos el array de result
   }
-  
-
 
 }
