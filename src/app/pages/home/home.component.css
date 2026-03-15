@@ -1,0 +1,21 @@
+.container {
+  max-width: 1200px;    /* ancho máximo del listado */
+  margin: 0 auto;        /* centra el bloque */
+  padding: 20px;
+}
+
+/* Título centrado con aire */
+.container h1 {
+  text-align: center;
+  margin: 40px 0 30px;
+  font-weight: 600;
+  letter-spacing: 0.5px;
+}
+
+/* Contenedor de cards */
+.container-users {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+  gap: 20px;
+  justify-content: center; /* centra las cards si hay menos en la fila */
+}

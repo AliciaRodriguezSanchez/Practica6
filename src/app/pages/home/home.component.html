@@ -1,1 +1,9 @@
-<p>home works!</p>
+<section class="container">
+    <h1>Listado usuarios</h1>
+    <div class="container-users">
+        @for(user of users(); track user.id){
+          <app-carduser [user]="user"></app-carduser>
+        }
+    </div>
+   
+</section>
