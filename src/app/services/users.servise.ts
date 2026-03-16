@@ -1,8 +1,8 @@
 import { Injectable , inject} from '@angular/core';
 import { HttpClient } from '@angular/common/http';
-import { IUser } from '../../interfaces/iuser.interface';
+import { IUser } from '../interfaces/iuser.interface';
 import { lastValueFrom } from 'rxjs';
-import { IUserApiResponse } from '../../interfaces/iuserapiresponse.interfaces';
+import { IUserApiResponse } from '../interfaces/iuserapiresponse.interfaces';
 
 
 @Injectable({

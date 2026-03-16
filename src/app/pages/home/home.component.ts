@@ -1,8 +1,8 @@
 import { Component , inject, signal} from '@angular/core';
 import { CarduserComponent } from '../../shared/carduser/carduser.component';
-import { UsersServise } from '../../services/users/users.servise';
+import { UsersServise } from '../../services/users.servise';
 import { IUser } from '../../interfaces/iuser.interface';
-import { IUserApiResponse } from '../../interfaces/iuserapiresponse.interfaces';
+
 
 @Component({
   selector: 'app-home',
