@@ -1,7 +1,7 @@
 .container {
   max-width: 1200px;    /* ancho máximo del listado */
   margin: 0 auto;        /* centra el bloque */
-  padding: 20px;
+  padding: 50px 20px;
 }
 
 /* Título centrado con aire */

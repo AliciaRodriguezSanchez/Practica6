@@ -7,11 +7,11 @@
             <h3>{{user()?.first_name}} {{user()?.last_name}}</h3>
         </div>
         <div class="action">
-            <button class="btn view" [routerLink]="['/user', user()?.id]">
+            <button class="btn view" [routerLink]="['/user', user()?._id]">
                 <i class="fa fa-search"></i>
                 <span>Ver Detalle</span>
             </button>
-            <button class="btn edit" [routerLink]="['/updateuser', user()?.id]">
+            <button class="btn edit" [routerLink]="['/updateuser', user()?._id]">
                 <i class="fa fa-refresh"></i>
                 <span>Actualizar</span>
             </button>

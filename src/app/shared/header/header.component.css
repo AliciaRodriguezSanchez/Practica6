@@ -1,22 +1,99 @@
-.header{
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    padding: 10px 20px;
-    background-color: rgb(79, 89, 98);
+/* Header general */
+.app-header {
+  width: 100%;
+  background-color: #f0f2f5;
+  color: #333;
+  /* Sombra solo en la parte inferior */
+  box-shadow: 0 4px 6px -2px rgba(0,0,0,0.15);
+  position: relative;
+  z-index: 1000; /* para que esté siempre arriba */
 }
-.right{
-    display: flex;
-    gap: 12;
 
+/* Contenedor */
+.header-container {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 10px 20px;
+  height: 80px;
+  box-sizing: border-box;
 }
-.logo{
-    height: 40px;
-    width: auto;
+
+/* Logo */
+.logo {
+  display: flex;
+  align-items: center;
+  gap: 10px;
 }
-.nav-link{
-    text-decoration: none;
-    padding: 6px 12px;
-    border: 1px solid #ccc;
-    color:black;
+
+.logo h1{
+  font-size: 21px;
+  margin: 0;
+}
+
+.logo-img {
+  height: 50px; /* logo más pequeño */
+  width: auto;
+  margin: 0 20px;
+}
+
+/* Navegación */
+.nav-links {
+  display: flex;
+  align-items: center;
+  gap: 15px;
+}
+
+.nav-links a {
+  position: relative;
+  color: #000000;
+  text-decoration: none;
+  font-weight: 500;
+  padding: 6px 12px;
+  border-radius: 20px; /* pastilla */
+  transition: all 0.3s cubic-bezier(0.25, 1, 0.5, 1);
+}
+
+/* Hover tipo pastilla */
+.nav-links a:hover,
+.nav-links a.active {
+  background-color: #d9d9d9; /* fondo gris suave */
+  color: #000000;
+}
+
+/* Botón hamburguesa */
+.menu-toggle {
+  display: none;
+  font-size: 24px;
+  background: none;
+  border: none;
+  cursor: pointer;
+  color: #333;
+}
+
+/* Responsive móvil */
+@media (max-width: 768px) {
+  .header-container {
+    flex-wrap: wrap;
+    height: auto;
+    padding: 10px;
+  }
+
+  .menu-toggle {
+    display: block;
+  }
+
+  .nav-links {
+    width: 100%;
+    flex-direction: column;
+    display: none;
+    margin-top: 10px;
+    gap: 10px;
+  }
+
+  .nav-links.open {
+    display: flex;
+  }
 }

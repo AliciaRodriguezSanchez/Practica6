@@ -1,0 +1,111 @@
+/* Contenedor principal */
+.user-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: calc(100vh - 64px);          /* ocupa todo el alto disponible */
+  width: 100%;
+  padding: 20px;
+  background: #f5f7fb;
+  box-sizing: border-box;
+}
+
+/* Tarjeta */
+.user-card {
+  display: flex;
+  flex-direction: row;
+  gap: 25px;
+  background: white;
+  padding: 25px;
+  border-radius: 14px;
+  box-shadow: 0 10px 25px rgba(0,0,0,0.08);
+  width: 100%;
+  max-width: 500px;       /* ancho máximo */
+  max-height: 60%;        /* alto máximo del 60% de la ventana */
+  overflow-y: auto;       /* scroll si no cabe todo */
+  box-sizing: border-box;
+}
+
+/* Imagen */
+.user-image img {
+  width: 180px;
+  height: 180px;
+  border-radius: 12px;
+  object-fit: cover;
+}
+
+/* Info */
+.user-info {
+  flex: 1;
+}
+
+.user-info h2 {
+  margin-bottom: 15px;
+  font-size: 20px;
+}
+
+.info-row {
+  margin-bottom: 10px;
+  font-size: 14px;
+}
+
+.label {
+  font-weight: 600;
+  margin-right: 6px;
+}
+
+/* Botones */
+.user-actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+  margin-top: 15px;
+  justify-content: center;
+}
+
+.btn {
+  flex: 1 1 100px;
+  padding: 8px;
+  border-radius: 8px;
+  border: none;
+  cursor: pointer;
+  font-weight: 600;
+  transition: 0.2s;
+}
+
+.delete { background: #ff4d4f; color: white; }
+.delete:hover { background: #d9363e; }
+.edit { background: #1677ff; color: white; }
+.edit:hover { background: #0958d9; }
+.back { background: #f0f0f0; }
+.back:hover { background: #d9d9d9; }
+
+/* Responsive: móviles y tablets */
+@media (max-width: 768px) {
+  .user-card {
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    padding: 20px;
+    gap: 15px;
+    max-width: 100%;   /* ahora ocupa 100% en móvil */
+    max-height: 100%;  /* ocupa todo el alto disponible */
+  }
+
+  .user-image img {
+    width: 140px;
+    height: 140px;
+  }
+
+  .user-info h2 { font-size: 18px; }
+  .info-row { font-size: 13px; }
+  .btn { flex: 1 1 100%; }
+}
+
+/* Pantallas grandes */
+@media (min-width: 1200px) {
+  .user-card { max-width: 700px; }
+  .user-image img { width: 220px; height: 220px; }
+  .user-info h2 { font-size: 22px; }
+  .info-row { font-size: 15px; }
+}

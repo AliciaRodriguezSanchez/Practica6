@@ -1,1 +1,51 @@
-<p>newuser works!</p>
+<div class="user-container">
+
+  <form class="user-card" (ngSubmit)="saveUser()" #userForm="ngForm">
+
+    <!-- Imagen -->
+    <div class="user-image">
+      <img [src]="user?.image" [alt]="user?.first_name">
+    </div>
+
+    <!-- Información editable -->
+    <div class="user-info">
+
+      <h2>Editar usuario</h2>
+
+      <div class="info-row">
+        <label class="label" for="firstName">Nombre:</label>
+        <input id="firstName" name="firstName" [(ngModel)]="user.first_name" required>
+      </div>
+
+      <div class="info-row">
+        <label class="label" for="lastName">Apellido:</label>
+        <input id="lastName" name="lastName" [(ngModel)]="user.last_name" required>
+      </div>
+
+      <div class="info-row">
+        <label class="label" for="email">Email:</label>
+        <input id="email" type="email" name="email" [(ngModel)]="user.email" required>
+      </div>
+
+      <div class="info-row">
+        <label class="label" for="username">Username:</label>
+        <input id="username" name="username" [(ngModel)]="user.username" required>
+      </div>
+
+      <div class="info-row">
+        <label class="label" for="password">Password:</label>
+        <input id="password" type="password" name="password" [(ngModel)]="user.password" required>
+      </div>
+
+      <!-- Botones -->
+      <div class="user-actions">
+        <button type="submit" class="btn edit">Actualizar</button>
+        <button type="button" class="btn delete" (click)="deleteUser()">Eliminar</button>
+        <button type="button" class="btn back" routerLink="/users">Volver</button>
+      </div>
+
+    </div>
+
+  </form>
+
+</div>
