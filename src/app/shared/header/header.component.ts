@@ -11,7 +11,11 @@ import { RouterLink, RouterLinkActive } from '@angular/router';
 export class HeaderComponent {
   menuOpen = false;
 
-  toggleMenu() {
+  toggleMenu(): void {
     this.menuOpen = !this.menuOpen;
+  }
+
+  closeMenu(): void {
+    this.menuOpen = false;
   }
 }
