@@ -15,6 +15,7 @@ export class AlertService {
       confirmButtonText: 'Eliminar',
       cancelButtonText: 'Cancelar'
     });
+    
   }
 
   success(message: string) {

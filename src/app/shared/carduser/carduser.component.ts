@@ -10,10 +10,10 @@ import { AlertService } from '../../services/alert.service';
   styleUrl: './carduser.component.css',
 })
 export class CarduserComponent {
-  user=input<IUser>();
+  user = input.required<IUser>();
   alertServices = inject(AlertService);
 
-  confirmDelete(user: any){
+  confirmDelete(user: IUser): void {
     this.alertServices.confirmDelete(user.first_name)
       .then(result => {
         if (result.isConfirmed) { 
@@ -27,4 +27,3 @@ export class CarduserComponent {
 }
   
   
-

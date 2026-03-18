@@ -14,14 +14,15 @@ export class UsersServise {
   httpClient = inject(HttpClient);
 
   
-  async getAllUserPromise(): Promise<IUser[]> {
+  async getAllUserPromise(page = 1, perPage = 10): Promise<IUserApiResponse> {
     const response = await lastValueFrom(
-      this.httpClient.get<IUserApiResponse>(this.baseUrl)
+      this.httpClient.get<IUserApiResponse>(
+        `${this.baseUrl}?page=${page}&per_page=${perPage}`
+      )
     );
-    console.log(response.results)
-    return response.results; // solo devolvemos el array de result
+    return response;
   }
-  async getAllUserByIdPromise(id:number): Promise<IUser> {
+  async getAllUserByIdPromise(id:string): Promise<IUser> {
     const response = await lastValueFrom(
       this.httpClient.get<IUser>(`${this.baseUrl}/${id}`)
     );

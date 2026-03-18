@@ -4,7 +4,7 @@
 
     <!-- Imagen -->
     <div class="user-image">
-      <img [src]="user?.image" [alt]="user?.first_name">
+      <img [src]="user()?.image" [alt]="user()?.first_name">
     </div>
 
     <!-- Info -->
@@ -14,29 +14,29 @@
 
       <div class="info-row">
         <span class="label">Nombre completo:</span>
-        <span>{{ user?.first_name }} {{ user?.last_name }}</span>
+        <span>{{ user()?.first_name }} {{ user()?.last_name }}</span>
       </div>
 
       <div class="info-row">
         <span class="label">Email:</span>
-        <span>{{ user?.email }}</span>
+        <span>{{ user()?.email }}</span>
       </div>
 
       <div class="info-row">
         <span class="label">Username:</span>
-        <span>{{ user?.username }}</span>
+        <span>{{ user()?.username }}</span>
       </div>
 
       <div class="info-row">
         <span class="label">Password:</span>
-        <span>{{ user?.password }}</span>
+        <span>{{ user()?.password }}</span>
       </div>
 
       <!-- Botones debajo del texto -->
       <div class="user-actions">
         <button class="btn delete">Eliminar</button>
-        <button class="btn edit">Actualizar</button>
-        <button class="btn back">Volver</button>
+        <button class="btn edit" [routerLink]="['/updateuser', user()?._id]">Actualizar</button>
+        <button class="btn back" [routerLink]="['/home']">Volver</button>
       </div>
 
     </div>

@@ -5,6 +5,7 @@
   align-items: center;
   height: calc(100vh - 64px);          /* ocupa todo el alto disponible */
   width: 100%;
+  min-width: 0;
   padding: 20px;
   background: #f5f7fb;
   box-sizing: border-box;
@@ -20,8 +21,6 @@
   border-radius: 14px;
   box-shadow: 0 10px 25px rgba(0,0,0,0.08);
   width: 100%;
-  max-width: 500px;       /* ancho máximo */
-  max-height: 60%;        /* alto máximo del 60% de la ventana */
   overflow-y: auto;       /* scroll si no cabe todo */
   box-sizing: border-box;
 }

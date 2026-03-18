@@ -1,8 +1,14 @@
 <section class="container">
-    <div class="container-users">
-        @for(user of users(); track user.id){
-          <app-carduser [user]="user"></app-carduser>
-        }
-    </div>
-   
+  <div class="container-users">
+    @for(user of users(); track user.id){
+      <app-carduser [user]="user"></app-carduser>
+    }
+  </div>
+
+  <div class="pagination">
+    <button type="button" (click)="prevPage()" [disabled]="currentPage() === 1">← Prev</button>
+    <span> {{currentPage()}} / {{totalPages()}}</span>
+    <button type="button" (click)="nextPage()" [disabled]="currentPage() === totalPages()">Next →</button>
+  </div>
+
 </section>
