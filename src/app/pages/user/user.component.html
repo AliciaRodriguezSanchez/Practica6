@@ -14,27 +14,27 @@
 
       <div class="info-row">
         <span class="label">Nombre completo:</span>
-        <span>{{ user()?.first_name }} {{ user()?.last_name }}</span>
+        <div class="info-value">{{ user()?.first_name }} {{ user()?.last_name }}</div>
       </div>
 
       <div class="info-row">
         <span class="label">Email:</span>
-        <span>{{ user()?.email }}</span>
+        <div class="info-value">{{ user()?.email }}</div>
       </div>
 
       <div class="info-row">
         <span class="label">Username:</span>
-        <span>{{ user()?.username }}</span>
+        <div class="info-value">{{ user()?.username }}</div>
       </div>
 
       <div class="info-row">
         <span class="label">Password:</span>
-        <span>{{ user()?.password }}</span>
+        <div class="info-value">{{ user()?.password }}</div>
       </div>
 
       <!-- Botones debajo del texto -->
       <div class="user-actions">
-        <button class="btn delete">Eliminar</button>
+        <button class="btn delete" (click)="deleteUser(user())">Eliminar</button>
         <button class="btn edit" [routerLink]="['/updateuser', user()?._id]">Actualizar</button>
         <button class="btn back" [routerLink]="['/home']">Volver</button>
       </div>

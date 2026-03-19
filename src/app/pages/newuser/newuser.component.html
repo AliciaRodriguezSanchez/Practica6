@@ -1,47 +1,63 @@
 <div class="user-container">
 
-  <form class="user-card" (ngSubmit)="saveUser()" #userForm="ngForm">
+  <form class="user-card" [formGroup]="form" (ngSubmit)="saveUser()">
 
     <!-- Imagen -->
     <div class="user-image">
-      <img [src]="user.image" [alt]="user.first_name">
+      @if (id()) {
+        <div class="image-edit-box">
+          <img
+            class="image-preview"
+            [src]="form.controls.image.value || 'assets/user.png'"
+            [alt]="form.controls.first_name.value || 'Usuario'"
+          />
+          <button type="button" class="image-edit-corner" aria-label="Editar imagen">✎</button>
+        </div>
+      } @else {
+        <button type="button" class="image-upload-btn" aria-label="Adjuntar imagen de usuario">
+          <span class="image-pencil">✎</span>
+          <span class="image-upload-text">Adjuntar imagen</span>
+        </button>
+      }
     </div>
 
     <!-- Información editable -->
     <div class="user-info">
 
-      <h2>Editar usuario</h2>
+      <h2>{{ id() ? 'Editar usuario' : 'Nuevo usuario' }}</h2>
 
       <div class="info-row">
         <label class="label" for="firstName">Nombre:</label>
-        <input id="firstName" name="firstName" [(ngModel)]="user.first_name" required>
+        <input id="firstName" formControlName="first_name" required>
       </div>
 
       <div class="info-row">
         <label class="label" for="lastName">Apellido:</label>
-        <input id="lastName" name="lastName" [(ngModel)]="user.last_name" required>
+        <input id="lastName" formControlName="last_name" required>
       </div>
 
       <div class="info-row">
         <label class="label" for="email">Email:</label>
-        <input id="email" type="email" name="email" [(ngModel)]="user.email" required>
+        <input id="email" type="email" formControlName="email" required>
       </div>
 
       <div class="info-row">
         <label class="label" for="username">Username:</label>
-        <input id="username" name="username" [(ngModel)]="user.username" required>
+        <input id="username" formControlName="username" required>
       </div>
 
       <div class="info-row">
         <label class="label" for="password">Password:</label>
-        <input id="password" type="password" name="password" [(ngModel)]="user.password" required>
+        <input id="password" type="password" formControlName="password" required>
       </div>
 
       <!-- Botones -->
       <div class="user-actions">
-        <button type="submit" class="btn edit">Actualizar</button>
-        <button type="button" class="btn delete" (click)="deleteUser()">Eliminar</button>
-        <button type="button" class="btn back" routerLink="/users">Volver</button>
+        <button type="submit" class="btn edit">{{ id() ? 'Actualizar' : 'Dar alta' }}</button>
+        @if (id()) {
+          <button type="button" class="btn delete" (click)="deleteUser()">Eliminar</button>
+        }
+        <button type="button" class="btn back" routerLink="/home">Volver</button>
       </div>
 
     </div>

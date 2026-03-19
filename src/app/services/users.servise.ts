@@ -29,4 +29,12 @@ export class UsersServise {
     return response; // solo devolvemos el array de result
   }
 
+  async removeUser(id: string): Promise<IUser> {
+    const response = await lastValueFrom(
+      this.httpClient.delete<IUser>(`${this.baseUrl}/${id}`)
+    );
+    console.log(response)
+    return response;
+  }
+
 }

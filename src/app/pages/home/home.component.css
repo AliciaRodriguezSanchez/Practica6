@@ -14,10 +14,15 @@
 
 /* Contenedor de cards */
 .container-users {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+  display:flex;
+  flex-wrap:wrap;
   gap: 20px;
-  justify-content: center; /* centra las cards si hay menos en la fila */
+  justify-content: center;
+}
+
+.container-users app-carduser {
+ flex: 0 0 250px;
+  width: 250px;
 }
 
 .pagination {

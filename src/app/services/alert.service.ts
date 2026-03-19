@@ -15,7 +15,6 @@ export class AlertService {
       confirmButtonText: 'Eliminar',
       cancelButtonText: 'Cancelar'
     });
-    
   }
 
   success(message: string) {
@@ -23,6 +22,14 @@ export class AlertService {
       'Éxito',
       message,
       'success'
+    );
+  }
+
+  error(message: string) {
+    return Swal.fire(
+      'Error',
+      message,
+      'error'
     );
   }
 

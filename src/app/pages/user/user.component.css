@@ -1,11 +1,10 @@
 /* Contenedor principal */
 .user-container {
   display: flex;
-  justify-content: center;
-  align-items: center;
-  height: calc(100vh - 64px);          /* ocupa todo el alto disponible */
+  justify-content: stretch;
+  align-items: stretch;
+  min-height: 100%;
   width: 100%;
-  min-width: 0;
   padding: 20px;
   background: #f5f7fb;
   box-sizing: border-box;
@@ -15,20 +14,24 @@
 .user-card {
   display: flex;
   flex-direction: row;
-  gap: 25px;
+  gap: 40px;
   background: white;
-  padding: 25px;
-  border-radius: 14px;
-  box-shadow: 0 10px 25px rgba(0,0,0,0.08);
+  padding: 30px 40px;
+  border-radius: 0;
+  box-shadow: none;
   width: 100%;
-  overflow-y: auto;       /* scroll si no cabe todo */
+  min-height: 100%;
+  overflow-y: auto;
   box-sizing: border-box;
+}
+
+.user-image {
+  width: 40%;
 }
 
 /* Imagen */
 .user-image img {
-  width: 180px;
-  height: 180px;
+  width: 100%;
   border-radius: 12px;
   object-fit: cover;
 }
@@ -36,21 +39,32 @@
 /* Info */
 .user-info {
   flex: 1;
+  display: flex;
+  flex-direction: column;
 }
 
 .user-info h2 {
-  margin-bottom: 15px;
+  margin-bottom: 24px;
   font-size: 20px;
 }
 
 .info-row {
   margin-bottom: 10px;
-  font-size: 14px;
+  display: flex;
+  flex-direction: column;
 }
 
 .label {
   font-weight: 600;
-  margin-right: 6px;
+  margin-bottom: 4px;
+}
+
+.info-value {
+  padding: 6px 2px 8px;
+  border: none;
+  border-bottom: 1px solid #d0d7de;
+  font-size: 13px;
+  background: transparent;
 }
 
 /* Botones */
@@ -58,16 +72,17 @@
   display: flex;
   flex-wrap: wrap;
   gap: 10px;
-  margin-top: 15px;
+  margin-top: 50px;
   justify-content: center;
 }
 
 .btn {
-  flex: 1 1 100px;
-  padding: 8px;
-  border-radius: 8px;
+  flex: 0 1 90px;
+  padding: 10px 8px;
+  border-radius: 7px;
   border: none;
   cursor: pointer;
+  font-size: 13px;
   font-weight: 600;
   transition: 0.2s;
 }
@@ -87,8 +102,11 @@
     text-align: center;
     padding: 20px;
     gap: 15px;
-    max-width: 100%;   /* ahora ocupa 100% en móvil */
-    max-height: 100%;  /* ocupa todo el alto disponible */
+    min-height: 100%;
+  }
+
+  .user-image {
+    width: 100%;
   }
 
   .user-image img {
@@ -97,14 +115,13 @@
   }
 
   .user-info h2 { font-size: 18px; }
-  .info-row { font-size: 13px; }
+  .info-value { font-size: 13px; }
   .btn { flex: 1 1 100%; }
 }
 
 /* Pantallas grandes */
 @media (min-width: 1200px) {
-  .user-card { max-width: 700px; }
-  .user-image img { width: 220px; height: 220px; }
+  .user-image img { width: 100%; }
   .user-info h2 { font-size: 22px; }
-  .info-row { font-size: 15px; }
+  .info-value { font-size: 15px; }
 }

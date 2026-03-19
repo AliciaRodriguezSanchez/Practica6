@@ -1,7 +1,8 @@
 import { Component, effect, inject, input, signal } from '@angular/core';
 import { IUser } from '../../interfaces/iuser.interface';
 import { UsersServise } from '../../services/users.servise';
-import { RouterLink } from '@angular/router';
+import { Router, RouterLink } from '@angular/router';
+import { AlertService } from '../../services/alert.service';
 
 @Component({
   selector: 'app-user',
@@ -14,6 +15,8 @@ export class UserComponent {
   user = signal<IUser | null>(null);
 
   private usersServices = inject(UsersServise);
+  private alertServices = inject(AlertService);
+  private router = inject(Router);
 
   constructor() {
     effect(() => {
@@ -25,8 +28,27 @@ export class UserComponent {
       this.loadUser(userId);
     });
   }
+  async deleteUser(user: IUser | null): Promise<void> {
+    if (!user) {
+      return;
+    }
 
-  private async loadUser(userId: string): Promise<void> {
+    const result = await this.alertServices.confirmDelete(user.first_name);
+    if (!result.isConfirmed) {
+      return;
+    }
+
+    try {
+      await this.usersServices.removeUser(user._id);
+      await this.alertServices.success('Usuario eliminado correctamente');
+      await this.router.navigate(['/home']);
+    } catch (error) {
+      console.error('Error eliminando usuario:', error);
+      await this.alertServices.error('No se pudo eliminar el usuario');
+    }
+  }
+
+  async loadUser(userId: string): Promise<void> {
     try {
       const response = await this.usersServices.getAllUserByIdPromise(userId);
       console.log(response)
