@@ -17,16 +17,14 @@ export class UserComponent {
   private usersServices = inject(UsersServise);
   private alertServices = inject(AlertService);
   private router = inject(Router);
-
-  constructor() {
-    effect(() => {
-      const userId = this.id();
-      if (!userId) {
-        this.user.set(null);
-        return;
-      }
-      this.loadUser(userId);
-    });
+  
+  ngOnInit() {
+    const userId = this.id();
+    if (!userId) {
+      this.user.set(null);
+      return;
+    }
+    this.loadUser(userId);
   }
   async deleteUser(user: IUser): Promise<void> {
     this.alertServices.openUserDeleteModal(user,() => {

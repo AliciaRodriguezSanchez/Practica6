@@ -1,13 +1,11 @@
 <header class="app-header">
   <div class="header-container">
-
-    <!-- Logo / Título -->
     <div class="logo">
       <a routerLink="/"><img class="logo-img" alt="logo" src="assets/user.png"/></a>
       <h1>Listado de usuarios</h1>
     </div>
 
-    <!-- Botón hamburguesa (solo móvil) -->
+    <!-- Botón hamburguesa => para la navegación en móvil -->
     <button
       class="menu-toggle"
       type="button"
@@ -19,7 +17,7 @@
     </button>
     <button class="menu-close" type="button" (click)="closeMenu()" [class.open]="menuOpen">✕</button>
 
-    <!-- Navegación -->
+    <!-- Navegación  para resoluciones mayores-->
     <nav class="nav-links" [class.open]="menuOpen">
       <a routerLink="/newuser" routerLinkActive="active" (click)="closeMenu()">
         <span>Nuevo Usuario</span>

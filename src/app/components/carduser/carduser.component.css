@@ -1,58 +1,54 @@
 /* Card base */
 .card {
   padding: 20px;
-  background: white;
-  border-radius: 10px;
+  background: var(--color-bg-surface);
+  border-radius: var(--radius-lg);
   overflow: hidden;
   width: 100%;
   max-width: 220px;      /* ancho máximo */
   margin: 0 auto;        /* centra cada card */
   transition: transform 0.25s ease, box-shadow 0.25s ease;
-  
-  /* Sombra base */
-  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+  box-shadow: var(--shadow-card);
+}
+
+@media (max-width: 768px) {
+  .card {
+    max-width: none;
+    width: 100%;
+  }
 }
 
 /* Hover */
 .card:hover {
   transform: scale(1.05);
-  box-shadow: 0 12px 25px rgba(0, 0, 0, 0.15);
+  box-shadow: var(--shadow-card-hover);
 }
 .card-body h3{
     text-align: center;
-    font-size: 16px;
+    font-size: var(--font-size-md);
 }
-
-/* Imagen */
 .image-user {
   display: flex;
   justify-content: center;
   padding: 15px;
 }
-
 .image-user img {
   width: 80px;
   height: 80px;
   object-fit: contain;
   border-radius: 50%;
 }
-
-/* Nombre de usuario */
 .user-name h3 {
   text-align: center;
   margin: 10px 0;
   font-weight: 600;
 }
-
-/* Botones de acción */
 .action {
   display: flex;
   justify-content: space-around;
   margin-top: 15px;
   flex-wrap: wrap;
 }
-
-/* Botón con icono arriba y texto debajo */
 .btn {
   display: flex;
   flex-direction: column;
@@ -63,27 +59,18 @@
   cursor: pointer;
   transition: transform 0.2s ease;
 }
-
 .btn:hover {
   transform: scale(1.1);
 }
-
-/* Tamaño del icono */
 .btn i {
   font-size: 20px;
 }
-
-/* Colores por acción */
 .view i {
-  color: #3498db;
+  color: var(--color-info);
 }
-
 .edit i {
-  color: #f39c12;
+  color: var(--color-warning);
 }
-
 .delete i {
-  color: #e74c3c;
+  color: var(--color-danger-icon);
 }
-
-

@@ -39,11 +39,6 @@ export class AlertService {
     this.onConfirmAction = null;
   }
 
-  confirmDelete(name: string): Promise<{ isConfirmed: boolean }> {
-    const isConfirmed = window.confirm(`¿Esta seguro de eliminar a ${name}?`);
-    return Promise.resolve({ isConfirmed });
-  }
-
   async success(message: string, action?: () => void | Promise<void>): Promise<void> {
     toast.success(message);
     if (action) {

@@ -6,7 +6,7 @@
   min-height: 100%;
   width: 100%;
   padding: 20px;
-  background: #f5f7fb;
+  background: var(--color-bg-page);
   box-sizing: border-box;
 }
 
@@ -15,9 +15,9 @@
   display: flex;
   flex-direction: row;
   gap: 40px;
-  background: white;
+  background: var(--color-bg-surface);
   padding: 30px 40px;
-  border-radius: 12px;
+  border-radius: var(--radius-xl);
   box-shadow: none;
   width: 100%;
   min-height: 100%;
@@ -31,7 +31,7 @@
 .image-edit-box {
   position: relative;
   width: 100%;
-  border-radius: 12px;
+  border-radius: var(--radius-xl);
   overflow: hidden;
 }
 
@@ -45,7 +45,7 @@
   width: 100%;
   min-height: 240px;
   object-fit: cover;
-  border-radius: 12px;
+  border-radius: var(--radius-xl);
 }
 
 .image-preview-new {
@@ -60,30 +60,30 @@
   height: 36px;
   border-radius: 50%;
   border: none;
-  background: rgba(47, 51, 56, 0.8);
-  color: #fff;
+  background: var(--color-overlay-dark);
+  color: var(--color-bg-surface);
   cursor: pointer;
 }
 /* Placeholder foto */
 .image-upload-btn {
   width: 100%;
   min-height: 240px;
-  border-radius: 12px;
-  background: #d0d4da;
-  color: #5f6772;
+  border-radius: var(--radius-xl);
+  background: var(--color-border-soft);
+  color: var(--color-text-muted);
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: center;
   gap: 10px;
-  border: 1px dashed #a5acb7;
+  border: 1px dashed var(--color-border-dashed);
   cursor: pointer;
   transition: background-color 0.2s ease, border-color 0.2s ease;
 }
 
 .image-upload-btn:hover {
   background: #c7ccd4;
-  border-color: #8e97a4;
+  border-color: var(--color-border-hover);
 }
 
 .image-pencil {
@@ -93,7 +93,7 @@
 }
 
 .image-upload-text {
-  font-size: 13px;
+  font-size: var(--font-size-sm);
   font-weight: 600;
 }
 
@@ -106,7 +106,7 @@
 
 .user-info h2 {
   margin-bottom: 24px;
-  font-size: 20px;
+  font-size: var(--font-size-lg);
 }
 
 /* Inputs */
@@ -118,19 +118,19 @@
 
 .info-row input {
   padding: 6px 8px;
-  border-radius: 5px;
-  border: 1px solid #ccc;
-  font-size: 13px;
+  border-radius: var(--radius-sm);
+  border: 1px solid var(--color-border);
+  font-size: var(--font-size-sm);
 }
 
 .info-row input.ng-invalid.ng-touched {
-  border-color: #d9363e;
+  border-color: var(--color-danger);
 }
 
 .error-text {
   margin: 4px 0 0;
-  color: #d9363e;
-  font-size: 12px;
+  color: var(--color-danger);
+  font-size: var(--font-size-xs);
 }
 
 /* Botones */
@@ -145,10 +145,10 @@
 .btn {
   flex: 0 1 90px;
   padding: 10px 8px;
-  border-radius: 7px;
+  border-radius: var(--radius-md);
   border: none;
   cursor: pointer;
-  font-size: 13px;
+  font-size: var(--font-size-sm);
   font-weight: 600;
   transition: 0.2s;
 }
@@ -158,12 +158,12 @@
   opacity: 0.6;
 }
 
-.delete { background: #ff4d4f; color: white; }
-.delete:hover { background: #d9363e; }
-.edit { background: #1677ff; color: white; }
-.edit:hover { background: #0958d9; }
-.back { background: #f0f0f0; }
-.back:hover { background: #d9d9d9; }
+.delete { background: var(--color-danger-soft); color: var(--color-bg-surface); }
+.delete:hover { background: var(--color-danger); }
+.edit { background: var(--color-primary); color: var(--color-bg-surface); }
+.edit:hover { background: var(--color-primary-hover); }
+.back { background: var(--color-neutral); }
+.back:hover { background: var(--color-neutral-hover); }
 
 /* Responsive */
 @media (max-width: 768px) {
@@ -183,9 +183,35 @@
   .image-edit-box-new { width: 140px; }
   .image-preview-new { min-height: 140px; }
 
+  .user-info {
+    width: 100%;
+    align-items: center;
+  }
+
   .user-info h2 { font-size: 18px; }
-  .info-row input { font-size: 13px; }
-  .btn { flex: 1 1 100%; }
+  .info-row {
+    width: 80%;
+    margin-left: auto;
+    margin-right: auto;
+    text-align: left;
+  }
+
+  .info-row input {
+    width: 100%;
+    font-size: var(--font-size-sm);
+    box-sizing: border-box;
+  }
+
+  .user-actions {
+    width: 80%;
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .btn {
+    flex: none;
+    width: 80%;
+  }
 }
 
 @media (min-width: 1200px) {

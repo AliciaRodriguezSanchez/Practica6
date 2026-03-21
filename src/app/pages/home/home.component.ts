@@ -1,5 +1,5 @@
 import { Component, inject, signal } from '@angular/core';
-import { CarduserComponent } from '../../shared/carduser/carduser.component';
+import { CarduserComponent } from '../../components/carduser/carduser.component';
 import { UsersServise } from '../../services/users.servise';
 import { IUser } from '../../interfaces/iuser.interface';
 import { AlertService } from '../../services/alert.service';

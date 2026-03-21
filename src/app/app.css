@@ -14,7 +14,7 @@ header {
 
 main {
   height: 100vh;
-  padding-top: 80px;
+  padding-top: var(--header-height);
   overflow-y: auto;
-  background-color: #f5f7fb;
+  background-color: var(--color-bg-page);
 }

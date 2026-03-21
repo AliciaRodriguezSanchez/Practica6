@@ -1,0 +1,36 @@
+.error-container {
+  text-align: center;
+  padding: 4rem;
+  font-family: Arial, sans-serif;
+}
+
+.error-container h1 {
+  font-size: 6rem;
+  margin-bottom: 1rem;
+  color: #e74c3c;
+}
+
+.error-container h2 {
+  font-size: 2rem;
+  margin-bottom: 1rem;
+}
+
+.error-container p {
+  font-size: 1.2rem;
+  margin-bottom: 2rem;
+  color: var(--color-text-muted);
+}
+
+.error-container button {
+  padding: 0.7rem 1.5rem;
+  font-size: 1rem;
+  background-color: var(--color-primary);
+  color: var(--color-bg-surface);
+  border: none;
+  border-radius: var(--radius-sm);
+  cursor: pointer;
+}
+
+.error-container button:hover {
+  background-color: var(--color-primary);
+}

@@ -55,17 +55,14 @@ export class NewuserComponent {
   });
   alertServices = inject(AlertService);
 
-  constructor() {
-    effect(() => {
-      const userId = this.id();
-      if (!userId) {
-        this.form.reset(this.createEmptyUser());
-        return;
-      }
-      void this.loadUser(userId);
-    });
+  ngOnInit() {
+    const userId = this.id();
+    if (!userId) {
+      this.form.reset(this.createEmptyUser());
+      return;
+    }
+    this.loadUser(userId);
   }
-
   async saveUser(): Promise<void> {
     if (this.form.invalid) {
       this.form.markAllAsTouched();
