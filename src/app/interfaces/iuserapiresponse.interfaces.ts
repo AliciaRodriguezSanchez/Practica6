@@ -7,3 +7,7 @@ export interface IUserApiResponse {
  total_pages: number;
  results : IUser[];
 }
+
+export interface IUserApiResponseError {
+ error: string;
+}

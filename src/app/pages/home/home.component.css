@@ -1,10 +1,10 @@
 .container {
-  max-width: 1200px;    /* ancho máximo del listado */
-  margin: 0 auto;        /* centra el bloque */
-  padding: 20px;
+  max-width: 1200px;    
+  margin: 0 auto;       
+  padding: 50px 20px;
 }
 
-/* Título centrado con aire */
+
 .container h1 {
   text-align: center;
   margin: 40px 0 30px;
@@ -12,10 +12,79 @@
   letter-spacing: 0.5px;
 }
 
-/* Contenedor de cards */
+
 .container-users {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+  display:flex;
+  flex-wrap:wrap;
   gap: 20px;
-  justify-content: center; /* centra las cards si hay menos en la fila */
+  justify-content: center;
+}
+
+.container-users app-carduser {
+ flex: 0 0 250px;
+  width: 250px;
+}
+
+@media (max-width: 768px) {
+  .container-users {
+    gap: 16px;
+  }
+
+  .container-users app-carduser {
+    flex: 0 0 80%;
+    width: 80%;
+  }
+}
+
+.loading-state {
+  min-height: 320px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 12px;
+  color: var(--color-text-muted);
+}
+
+.spinner {
+  width: 36px;
+  height: 36px;
+  border-radius: 50%;
+  border: 4px solid var(--color-border-soft);
+  border-top-color: var(--color-text-muted);
+  animation: spin 0.8s linear infinite;
+}
+
+@keyframes spin {
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+.pagination {
+  margin-top: 24px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 12px;
+}
+
+.pagination button {
+  border: 1px solid var(--color-border-soft);
+  background: var(--color-bg-surface);
+  padding: 8px 16px;
+  border-radius: var(--radius-round);
+  cursor: pointer;
+  font-weight: 600;
+}
+
+.pagination button:disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+}
+
+.pagination-total {
+  margin-top: 8px;
+  text-align: center;
+  color: #616b75;
 }

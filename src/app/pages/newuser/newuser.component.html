@@ -1,1 +1,91 @@
-<p>newuser works!</p>
+<div class="user-container">
+  <form class="user-card" [formGroup]="form" (ngSubmit)="saveUser()">
+    <div class="user-image">
+      <div class="image-edit-box" [class.image-edit-box-new]="!id()">
+        <img
+          class="image-preview"
+          [class.image-preview-new]="!id()"
+          [src]="imagePreview"
+          [alt]="form.controls.first_name.value || 'Usuario'"
+        />
+      </div>
+    </div>
+
+    <div class="user-info">
+      <h2>{{ id() ? 'Editar usuario' : 'Nuevo usuario' }}</h2>
+
+      <div class="info-row">
+        <label class="label" for="firstName">Nombre:</label>
+        <input id="firstName" formControlName="first_name" required>
+        @if (checkControl('first_name', 'required')) {
+          <p class="error-text">El nombre es obligatorio.</p>
+        }
+      </div>
+
+      <div class="info-row">
+        <label class="label" for="lastName">Apellido:</label>
+        <input id="lastName" formControlName="last_name" required>
+        @if (checkControl('last_name', 'required')) {
+          <p class="error-text">El apellido es obligatorio.</p>
+        }
+      </div>
+
+      <div class="info-row">
+        <label class="label" for="email">Email:</label>
+        <input id="email" type="email" formControlName="email" required>
+        @if (checkControl('email', 'required')) {
+          <p class="error-text">El email es obligatorio.</p>
+        }
+        @if (checkControl('email', 'email')) {
+          <p class="error-text">Introduce un email valido.</p>
+        }
+      </div>
+
+      <div class="info-row">
+        <label class="label" for="username">Username:</label>
+        <input id="username" formControlName="username" required>
+        @if (checkControl('username', 'required')) {
+          <p class="error-text">El username es obligatorio.</p>
+        }
+      </div>
+
+      <div class="info-row">
+        <label class="label" for="password">Password:</label>
+        <input id="password" type="password" formControlName="password" required>
+        @if (checkControl('password', 'required')) {
+          <p class="error-text">La password es obligatoria.</p>
+        }
+      </div>
+
+      <div class="info-row">
+        <label class="label" for="image">Imagen:</label>
+        <input
+          id="image"
+          type="url"
+          formControlName="image"
+          placeholder="https://ejemplo.com/imagen.jpg"
+          required
+        >
+        @if (checkControl('image', 'required')) {
+          <p class="error-text">La imagen es obligatoria.</p>
+        }
+        @if (checkControl('image', 'invalidImageUrl')) {
+          <p class="error-text">Introduce una URL valida de una imagen de internet.</p>
+        }
+      </div>
+
+      <div class="user-actions">
+        <input
+          type="submit"
+          class="btn edit"
+          [disabled]="form.invalid"
+          [value]="id() ? 'Actualizar' : 'Dar de alta'"
+        >
+        @if (id()) {
+          <button type="button" class="btn delete" (click)="deleteUser()">Eliminar</button>
+        }
+        <button type="button" class="btn back" routerLink="/home">Volver</button>
+      </div>
+    </div>
+  </form>
+</div>
