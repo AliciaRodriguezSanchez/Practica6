@@ -17,7 +17,7 @@
   gap: 40px;
   background: white;
   padding: 30px 40px;
-  border-radius: 0;
+  border-radius: 12px;
   box-shadow: none;
   width: 100%;
   min-height: 100%;
@@ -35,12 +35,21 @@
   overflow: hidden;
 }
 
+.image-edit-box-new {
+  width: 50%;
+  margin: 0 auto;
+}
+
 .image-preview {
   display: block;
   width: 100%;
   min-height: 240px;
   object-fit: cover;
   border-radius: 12px;
+}
+
+.image-preview-new {
+  min-height: 120px;
 }
 
 .image-edit-corner {
@@ -114,6 +123,16 @@
   font-size: 13px;
 }
 
+.info-row input.ng-invalid.ng-touched {
+  border-color: #d9363e;
+}
+
+.error-text {
+  margin: 4px 0 0;
+  color: #d9363e;
+  font-size: 12px;
+}
+
 /* Botones */
 .user-actions {
   display: flex;
@@ -132,6 +151,11 @@
   font-size: 13px;
   font-weight: 600;
   transition: 0.2s;
+}
+
+.btn:disabled {
+  cursor: not-allowed;
+  opacity: 0.6;
 }
 
 .delete { background: #ff4d4f; color: white; }
@@ -156,6 +180,8 @@
   .image-upload-btn,
   .image-edit-box { width: 140px; min-height: 140px; margin: 0 auto; }
   .image-preview { min-height: 140px; }
+  .image-edit-box-new { width: 140px; }
+  .image-preview-new { min-height: 140px; }
 
   .user-info h2 { font-size: 18px; }
   .info-row input { font-size: 13px; }

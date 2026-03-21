@@ -1,10 +1,10 @@
 .container {
-  max-width: 1200px;    /* ancho máximo del listado */
-  margin: 0 auto;        /* centra el bloque */
+  max-width: 1200px;    
+  margin: 0 auto;       
   padding: 50px 20px;
 }
 
-/* Título centrado con aire */
+
 .container h1 {
   text-align: center;
   margin: 40px 0 30px;
@@ -12,7 +12,7 @@
   letter-spacing: 0.5px;
 }
 
-/* Contenedor de cards */
+
 .container-users {
   display:flex;
   flex-wrap:wrap;
@@ -23,6 +23,31 @@
 .container-users app-carduser {
  flex: 0 0 250px;
   width: 250px;
+}
+
+.loading-state {
+  min-height: 320px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 12px;
+  color: #4f5b68;
+}
+
+.spinner {
+  width: 36px;
+  height: 36px;
+  border-radius: 50%;
+  border: 4px solid #d0d7de;
+  border-top-color: #4f5b68;
+  animation: spin 0.8s linear infinite;
+}
+
+@keyframes spin {
+  to {
+    transform: rotate(360deg);
+  }
 }
 
 .pagination {

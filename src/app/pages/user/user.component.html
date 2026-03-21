@@ -1,46 +1,39 @@
 <div class="user-container">
+  @if (user(); as currentUser) {
+    <div class="user-card">
+      <div class="user-image">
+        <img [src]="currentUser.image" [alt]="currentUser.first_name">
+      </div>
 
-  <div class="user-card">
+      <div class="user-info">
+        <h2>Información del usuario</h2>
 
-    <!-- Imagen -->
-    <div class="user-image">
-      <img [src]="user()?.image" [alt]="user()?.first_name">
+        <div class="info-row">
+          <span class="label">Nombre completo:</span>
+          <div class="info-value">{{ currentUser.first_name }} {{ currentUser.last_name }}</div>
+        </div>
+
+        <div class="info-row">
+          <span class="label">Email:</span>
+          <div class="info-value">{{ currentUser.email }}</div>
+        </div>
+
+        <div class="info-row">
+          <span class="label">Username:</span>
+          <div class="info-value">{{ currentUser.username }}</div>
+        </div>
+
+        <div class="info-row">
+          <span class="label">Password:</span>
+          <div class="info-value">*******</div>
+        </div>
+
+        <div class="user-actions">
+          <button class="btn delete" (click)="deleteUser(currentUser)">Eliminar</button>
+          <button class="btn edit" [routerLink]="['/updateuser', currentUser._id]">Actualizar</button>
+          <button class="btn back" [routerLink]="['/home']">Volver</button>
+        </div>
+      </div>
     </div>
-
-    <!-- Info -->
-    <div class="user-info">
-
-      <h2>Información del usuario</h2>
-
-      <div class="info-row">
-        <span class="label">Nombre completo:</span>
-        <div class="info-value">{{ user()?.first_name }} {{ user()?.last_name }}</div>
-      </div>
-
-      <div class="info-row">
-        <span class="label">Email:</span>
-        <div class="info-value">{{ user()?.email }}</div>
-      </div>
-
-      <div class="info-row">
-        <span class="label">Username:</span>
-        <div class="info-value">{{ user()?.username }}</div>
-      </div>
-
-      <div class="info-row">
-        <span class="label">Password:</span>
-        <div class="info-value">{{ user()?.password }}</div>
-      </div>
-
-      <!-- Botones debajo del texto -->
-      <div class="user-actions">
-        <button class="btn delete" (click)="deleteUser(user())">Eliminar</button>
-        <button class="btn edit" [routerLink]="['/updateuser', user()?._id]">Actualizar</button>
-        <button class="btn back" [routerLink]="['/home']">Volver</button>
-      </div>
-
-    </div>
-
-  </div>
-
+  }
 </div>

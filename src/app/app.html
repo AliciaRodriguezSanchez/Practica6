@@ -4,4 +4,15 @@
 <main>
   <router-outlet />
 </main>
+<app-modal
+  [open]="alertServices.modalOpen()"
+  [title]="alertServices.modalTitle()"
+  [confirmText]="alertServices.modalConfirmText()"
+  [cancelText]="alertServices.modalCancelText()"
+  (close)="alertServices.closeModal()"
+  (confirm)="alertServices.confirmModal()"
+>
+  <p>{{ alertServices.modalMessage() }}</p>
+</app-modal>
+<ngx-sonner-toaster richColors/>
 <footer></footer>

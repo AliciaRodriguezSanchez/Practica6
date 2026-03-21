@@ -28,30 +28,15 @@ export class UserComponent {
       this.loadUser(userId);
     });
   }
-  async deleteUser(user: IUser | null): Promise<void> {
-    if (!user) {
-      return;
-    }
-
-    const result = await this.alertServices.confirmDelete(user.first_name);
-    if (!result.isConfirmed) {
-      return;
-    }
-
-    try {
-      await this.usersServices.removeUser(user._id);
-      await this.alertServices.success('Usuario eliminado correctamente');
-      await this.router.navigate(['/home']);
-    } catch (error) {
-      console.error('Error eliminando usuario:', error);
-      await this.alertServices.error('No se pudo eliminar el usuario');
-    }
+  async deleteUser(user: IUser): Promise<void> {
+    this.alertServices.openUserDeleteModal(user,() => {
+      this.router.navigate(['/home']);
+    });
   }
 
   async loadUser(userId: string): Promise<void> {
     try {
       const response = await this.usersServices.getAllUserByIdPromise(userId);
-      console.log(response)
       this.user.set(response);
     } catch (error) {
       this.user.set(null);

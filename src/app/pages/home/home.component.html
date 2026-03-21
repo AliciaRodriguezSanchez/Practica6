@@ -1,14 +1,21 @@
 <section class="container">
-  <div class="container-users">
-    @for(user of users(); track user.id){
-      <app-carduser [user]="user"></app-carduser>
-    }
-  </div>
+  @if (loading()) {
+    <div class="loading-state">
+      <div class="spinner" aria-hidden="true"></div>
+      <p>Cargando usuarios...</p>
+    </div>
+  } @else {
+    <div class="container-users">
+      @for(user of users(); track user.id){
+        <app-carduser [user]="user" (deleteRequested)="deleteUser($event)"></app-carduser>
+      }
+    </div>
+  }
 
   <div class="pagination">
-    <button type="button" (click)="prevPage()" [disabled]="currentPage() === 1">← Prev</button>
+    <button type="button" (click)="prevPage()" [disabled]="loading() || currentPage() === 1">← Prev</button>
     <span> {{currentPage()}} / {{totalPages()}}</span>
-    <button type="button" (click)="nextPage()" [disabled]="currentPage() === totalPages()">Next →</button>
+    <button type="button" (click)="nextPage()" [disabled]="loading() || currentPage() === totalPages()">Next →</button>
   </div>
 
 </section>
