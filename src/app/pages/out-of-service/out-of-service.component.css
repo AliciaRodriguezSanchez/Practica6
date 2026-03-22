@@ -1,11 +1,15 @@
 .error-container {
     text-align: center;
+    height: 100%;
     padding: 4rem;
     font-family: Arial, sans-serif;
+    display: flex;
+    justify-content: center;
+    align-items: center;
 }
 
 .error-container h1 {
-    font-size: 6rem;
+    font-size: 2rem;
     margin-bottom: 1rem;
     color: #e74c3c;
 }

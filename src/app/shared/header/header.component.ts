@@ -13,7 +13,7 @@ export class HeaderComponent {
   toggleMenu(): void {
     this.menuOpen = !this.menuOpen;
   }
-
+  
   closeMenu(): void {
     this.menuOpen = false;
   }

@@ -9,9 +9,9 @@ import { Router } from '@angular/router';
 })
 
 export class Error404Component {
-  constructor(private router: Router) {}
+  constructor(private router: Router) { }
 
   goHome() {
-    this.router.navigate(['/']); 
+    this.router.navigate(['/']);
   }
 }

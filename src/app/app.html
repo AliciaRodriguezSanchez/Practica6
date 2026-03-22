@@ -4,15 +4,14 @@
 <main>
   <router-outlet />
 </main>
-<app-modal
-  [open]="alertServices.modalOpen()"
+<app-modal 
+  [open]="alertServices.modalOpen()" 
   [title]="alertServices.modalTitle()"
-  [confirmText]="alertServices.modalConfirmText()"
+  [confirmText]="alertServices.modalConfirmText()" 
   [cancelText]="alertServices.modalCancelText()"
-  (close)="alertServices.closeModal()"
-  (confirm)="alertServices.confirmModal()"
->
-  <p>{{ alertServices.modalMessage() }}</p>
+  (close)="alertServices.closeModal()" 
+  (confirm)="alertServices.confirmModal()">
+    <p>{{ alertServices.modalMessage() }}</p>
 </app-modal>
-<ngx-sonner-toaster richColors/>
+<ngx-sonner-toaster richColors />
 <footer>© 2026 Registro usuarios.</footer>
