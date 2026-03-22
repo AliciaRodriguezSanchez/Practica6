@@ -1,13 +1,13 @@
 import { IUser } from "./iuser.interface"
 
 export interface IUserApiResponse {
- page: number;
- per_page: number;
- total: number;
- total_pages: number;
- results : IUser[];
+    page: number;
+    per_page: number;
+    total: number;
+    total_pages: number;
+    results: IUser[];
 }
 
 export interface IUserApiResponseError {
- error: string;
+    error: string;
 }

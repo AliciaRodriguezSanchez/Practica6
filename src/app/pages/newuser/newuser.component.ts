@@ -1,4 +1,4 @@
-import { Component, effect, inject, input } from '@angular/core';
+import { Component, inject, input } from '@angular/core';
 import {
   AbstractControl,
   FormControl,
@@ -73,21 +73,21 @@ export class NewuserComponent {
       if (this.id()) {
         const response = await this.usersServices.updateUser(user);
         if (response.id) {
-          await this.alertServices.success('Usuario actualizado correctamente', async () => {
-            await this.router.navigate(['/home']);
+          this.alertServices.success('Usuario actualizado correctamente', async () => {
+            this.router.navigate(['/home']);
           });
         }
       } else {
         const response = await this.usersServices.createUser(user);
         if (response.id) {
-          await this.alertServices.success('Usuario creado correctamente', async () => {
-            await this.router.navigate(['/home']);
+          this.alertServices.success('Usuario creado correctamente', async () => {
+            this.router.navigate(['/home']);
           });
         }
       }
     } catch (error: unknown) {
       const apiError = error as IUserApiResponseError;
-      await this.alertServices.error(apiError.error || 'No se pudo guardar el usuario');
+      this.alertServices.error(apiError.error || 'No se pudo guardar el usuario');
     }
   }
 
@@ -132,12 +132,11 @@ export class NewuserComponent {
     try {
       const response = await this.usersServices.getAllUserByIdPromise(userId);
       this.form.reset(response);
-      this.form.markAsPristine();
-      this.form.markAsUntouched();
-      this.form.updateValueAndValidity();
     } catch (error) {
-      console.error('Error cargando usuario para editar:', error);
       this.form.reset(this.createEmptyUser());
+      this.alertServices.error('Error al cargar el usuario para editar', async () => {
+        await this.router.navigate(['/home']);
+      });
     }
   }
 

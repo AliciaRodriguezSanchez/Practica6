@@ -1,4 +1,4 @@
-import { Component, effect, inject, input, signal } from '@angular/core';
+import { Component, inject, input, signal } from '@angular/core';
 import { IUser } from '../../interfaces/iuser.interface';
 import { UsersServise } from '../../services/users.servise';
 import { Router, RouterLink } from '@angular/router';
@@ -17,7 +17,7 @@ export class UserComponent {
   private usersServices = inject(UsersServise);
   private alertServices = inject(AlertService);
   private router = inject(Router);
-  
+
   ngOnInit() {
     const userId = this.id();
     if (!userId) {
@@ -26,8 +26,9 @@ export class UserComponent {
     }
     this.loadUser(userId);
   }
+
   async deleteUser(user: IUser): Promise<void> {
-    this.alertServices.openUserDeleteModal(user,() => {
+    this.alertServices.openUserDeleteModal(user, () => {
       this.router.navigate(['/home']);
     });
   }
@@ -38,7 +39,9 @@ export class UserComponent {
       this.user.set(response);
     } catch (error) {
       this.user.set(null);
-      console.error('Error cargando usuario:', error);
-    }
+      this.alertServices.error('No se ha podido cargar el usuario, vuelve a intentarlo más tarde... ', async () => {
+        await this.router.navigate(['/home']);
+      });
+    };
   }
 }

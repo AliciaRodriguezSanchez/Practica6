@@ -1,4 +1,5 @@
 import { Component, inject, signal } from '@angular/core';
+import { Router } from '@angular/router';
 import { CarduserComponent } from '../../components/carduser/carduser.component';
 import { UsersServise } from '../../services/users.servise';
 import { IUser } from '../../interfaces/iuser.interface';
@@ -12,7 +13,7 @@ import { AlertService } from '../../services/alert.service';
   styleUrl: './home.component.css',
 })
 export class HomeComponent {
-
+  private router = inject(Router);
   usersServices = inject(UsersServise);
   alertServices = inject(AlertService);
   users = signal<IUser[]>([]);
@@ -34,8 +35,10 @@ export class HomeComponent {
       this.currentPage.set(response.page);
       this.totalPages.set(response.total_pages);
       this.totalUsers.set(response.total);
-    } catch (data : any) {
-      this.alertServices.error('Error cargando usuarios:', data.error);
+    } catch (data: any) {
+      this.alertServices.error('Error cargando usuarios', () => {
+        this.router.navigate(['/outofservices']);
+      });
     } finally {
       this.loading.set(false);
     }

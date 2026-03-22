@@ -62,10 +62,10 @@ export class AlertService {
   }
 
   openUserDeleteModal(
-    user : IUser,
+    user: IUser,
     onDeleted?: () => void | Promise<void>
   ): void {
-    if(!user._id){
+    if (!user._id) {
       this.error('No se pudo eliminar el usuario')
       return;
     }
@@ -83,8 +83,7 @@ export class AlertService {
           }
         } catch (error: unknown) {
           const apiError = error as IUserApiResponseError;
-          console.error('Error eliminando usuario:', apiError.error || error);
-          await this.error('No se pudo eliminar el usuario');
+          await this.error(`Error eliminando usuario: ${apiError.error || error}`);
         }
       },
     });
